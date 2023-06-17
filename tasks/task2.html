@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_2.css">
+
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задачa 2</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Зробити конвертер валют (курси валют – константи у скрипті)
+	</p>
+	<h3>Розв'язок</h3>
+
+	<label class="label-grn">
+		Сума в гривнях
+		<input type="number" id='grn' value="0">
+	</label>
+	<div class="btn">
+		<button id="convert">Конвертувати</button>
+	</div>
+	<div class="rezult">
+		<div class="rezult-evro">Сума в евро </div>
+		<span Id="rez-evro"></span>
+	</div>
+	<div class="rezult">
+		<div class="rezult-dollar">Сума в доларах </div>
+		<span Id="rez-dollar"></span>
+	</div>
+
+
+
+	<script>
+		//========================================================================================================================================================
+		function convertEvro() {
+			const evroRate = 40
+			const dollarRate = 39
+			const grn = parseFloat(document.getElementById('grn').value)
+			const rezEvro = grn / evroRate
+			const rezDollar = grn / dollarRate
+			document.getElementById('rez-evro').innerHTML = rezEvro.toFixed(2)
+			document.getElementById('rez-dollar').innerHTML = rezDollar.toFixed(2)
+		}
+
+		document.getElementById('convert').onclick = convertEvro
+
+		//========================================================================================================================================================
+	</script>
+</body>
+
+</html>

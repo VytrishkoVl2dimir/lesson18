@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 6</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту
+		(авто, автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx)
+		та одного з 3-х гідів(використати - radio buttons). Ціни визначте самі.
+		Підрахувати загальну вартість.
+	</p>
+	<h3>Розв'язок</h3>
+	<div>
+		<label>
+			Вид транспорту
+			<select id="transport">
+				<option value="1000">авто (1000)</option>
+				<option value="500">автобус (500)</option>
+				<option value="3000">літак (3000)</option>
+			</select>
+		</label>
+	</div>
+	<div>
+		<label>
+			Cніданок (50)
+			<input type="checkbox" value="50">
+		</label>
+		<label>
+			Обід (100)
+			<input type="checkbox" value="100">
+		</label>
+		<label>
+			Вечеря (30)
+			<input type="checkbox" value="30">
+		</label>
+	</div>
+	<div>
+		<label>
+			Максим (500)
+			<input type="radio" name="gid" value="500">
+		</label>
+		<label>
+			Джон (800)
+			<input type="radio" name="gid" value="800">
+		</label>
+		<label>
+			Анна (1000)
+			<input type="radio" name="gid" value="1000">
+		</label>
+	</div>
+	<div>
+		<button id="btn">Підрахувати вартість</button>
+	</div>
+	<div>
+		Повна вартість: <span id="rezult"></span>
+	</div>
+	<script>
+		//========================================================================================================================================================
+		function getTotalPrice() {
+			const inputsList = document.getElementsByTagName('input')
+			const transportValue = parseFloat(document.getElementById('transport').value)
+			let sum = transportValue
+			for (const inp of inputsList) {
+				if (inp.checked) sum += parseFloat(inp.value)
+			}
+			document.getElementById('rezult').innerText = sum
+		}
+		document.getElementById('btn').onclick = getTotalPrice
+		//========================================================================================================================================================
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+	</style>
+</body>
+
+</html>

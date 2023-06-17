@@ -1,0 +1,29 @@
+h2 {
+	color: rgb(25, 13, 135);
+	width: 700;
+}
+h3 {
+	color: rgb(6, 95, 61);
+	width: 700;
+}
+
+.rezult{
+	display: flex;
+	align-items: center;
+	margin: 10px 0px 0px 0px;
+}
+
+.rezult-evro,
+.rezult-dollar{
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+
+#rez-evro,
+#rez-dollar{
+	padding: 0px 0px 0px 5px;
+	display: inline-block;
+	border: 1px solid #000;
+	min-width: 150px;
+	min-height: 20px;
+}

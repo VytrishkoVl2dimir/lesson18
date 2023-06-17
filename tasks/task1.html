@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_1.css">
+
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задачa 1</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Розробити калькулятор
+	</p>
+
+	<h3>Розв'язок</h3>
+
+	<label class="label-first">
+		First number
+		<input type="number" id='first' value="0">
+	</label>
+	<label>
+		Second number
+		<input type="number" id='second' value="0">
+	</label>
+	<div class="btn">
+		<button id="add">Додати</button>
+		<button id="minus">Відняти</button>
+		<button id="multiply">Помножити</button>
+		<button id="devision">Поділити</button>
+	</div>
+	<div class="rezult">
+		<div class="rezult-title">Результат</div>
+		<span class="rezult-value"></span>
+	</div>
+
+	<script>
+		//========================================================================================================================================================
+		function calcAdd() {
+			const first = parseFloat(document.getElementById('first').value)
+			const second = parseFloat(document.getElementById('second').value)
+			const rez = first + second
+			document.getElementsByClassName('rezult-value')[0].innerHTML = rez
+		}
+		function calcV() {
+			const first = parseFloat(document.getElementById('first').value)
+			const second = parseFloat(document.getElementById('second').value)
+			const rez = first - second
+			document.getElementsByClassName('rezult-value')[0].innerHTML = rez
+		}
+		function calcM() {
+			const first = parseFloat(document.getElementById('first').value)
+			const second = parseFloat(document.getElementById('second').value)
+			const rez = first * second
+			document.getElementsByClassName('rezult-value')[0].innerHTML = rez
+		}
+		function calcD() {
+			const first = parseFloat(document.getElementById('first').value)
+			const second = parseFloat(document.getElementById('second').value)
+			const rez = first / second
+			document.getElementsByClassName('rezult-value')[0].innerHTML = rez
+		}
+		document.getElementById('add').onclick = calcAdd
+		document.getElementById('minus').onclick = calcV
+		document.getElementById('multiply').onclick = calcM
+		document.getElementById('devision').onclick = calcD
+
+		//========================================================================================================================================================
+	</script>
+</body>
+
+</html>

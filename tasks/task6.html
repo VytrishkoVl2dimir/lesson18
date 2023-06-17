@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_6.css">
+
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 6</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Користувач задає кількість оцінок і натискає на кнопку «get table».
+		В результаті формується таблиця з input, куди користувач вводить оцінки.
+		Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+	</p>
+	<h3>Розв'язок</h3>
+
+	<label class="label-grn">
+		Введіть кількість оцінок
+		<input type="number" id='numberRating'>
+	</label>
+	<div class="btn">
+		<button id="getTable">Get table</button>
+		<div id="tableRezult"></div>
+		<button id="getSum">Get sum</button>
+		<div id="rezult"></div>
+	</div>
+	<script>
+		//========================================================================================================================================================
+
+
+		class GetTable {
+			constructor({ numberScores, columnsNumber }) {
+				this.numberScores = numberScores
+				this.columnsNumber = columnsNumber
+			}
+			render() {
+				const table = document.createElement('table')
+				for (let i = this.numberScores; i > 0; i -= this.columnsNumber) {
+					const tr = document.createElement('tr')
+					let currentColumnsNumber = i >= this.columnsNumber ? this.columnsNumber : i % this.columnsNumber
+					for (let j = 0; j < currentColumnsNumber; j++) {
+						const td = document.createElement('td')
+						const inp = document.createElement('input')
+						inp.className = 'tab_input'
+						td.append(inp)
+						tr.append(inp)
+					}
+					table.append(tr)
+					document.getElementById('tableRezult').append(table)
+				}
+			}
+		}
+
+		function getSum() {
+			const inpValue = document.querySelectorAll('.tab_input')
+			let sum = 0
+			for (let i = 0; i < inpValue.length; i++) {
+				sum += parseInt(inpValue[i].value)
+			}
+			const average = sum / inpValue.length
+			document.getElementById('rezult').innerText = `sum= ${average.toFixed(1)}`
+		}
+
+
+		document.getElementById('getTable').onclick = () => {
+			const data = {
+				numberScores: parseInt(document.getElementById('numberRating').value),
+				columnsNumber: 5,
+			}
+			const newTable = new GetTable(data).render()
+		}
+		document.getElementById('getSum').onclick = getSum
+
+
+		//========================================================================================================================================================
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+	</style>
+</body>
+
+</html>

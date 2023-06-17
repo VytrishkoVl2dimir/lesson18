@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 5</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Відобразити таблицю 3*4 з випадковими числами (її треба динамічно створити і вставити на сторінку)
+	</p>
+	<h3>Розв'язок</h3>
+
+	<div id="container"></div>
+
+	<script>
+		//========================================================================================================================================================
+		function getRandomNumber(min = 0, max = 10) {
+			return min + Math.floor(Math.random() * (max - min + 1))
+		}
+
+		function getRandomArr(rows, columns) {
+			const arr = []
+			for (let r = 0; r < rows; r++) {
+				const arrRow = []
+				for (let c = 0; c < columns; c++) {
+					arrRow.push(getRandomNumber())
+				}
+				arr.push(arrRow)
+			}
+			return arr
+		}
+		const randomArr = getRandomArr(3, 4)
+
+		const table = document.createElement('table')
+		for (const row of randomArr) {
+			const tr = document.createElement('tr')
+			for (const elem of row) {
+				const td = document.createElement('td')
+				td.innerText = elem
+				tr.append(td)
+			}
+			table.append(tr)
+		}
+		document.getElementById('container').append(table)
+
+
+		//========================================================================================================================================================
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		td,
+		th {
+			border: 2px solid black;
+			width: 25px;
+			text-align: center;
+		}
+	</style>
+</body>
+
+</html>

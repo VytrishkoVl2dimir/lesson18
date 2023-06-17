@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_3.css">
+
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 3</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Користувач задає рік народження. Визначити кількість років користувача.
+	</p>
+	<h3>Розв'язок</h3>
+
+	<label class="label-grn">
+		Рік народження
+		<input type="number" id='year'>
+	</label>
+	<div class="btn">
+		<button id="calc">Розрахувати</button>
+	</div>
+	<div class="rezult">
+		Вік користувача - <span Id="age"></span>
+	</div>
+
+	<script>
+		//========================================================================================================================================================
+		function calculate() {
+			const userYear = parseFloat(document.getElementById('year').value)
+			const currentDate = new Date().getFullYear()
+			const userAge = currentDate - userYear
+			document.getElementById('age').innerHTML = userAge + ' ' + 'років'
+		}
+		document.getElementById('calc').onclick = calculate
+
+		//========================================================================================================================================================
+	</script>
+</body>
+
+</html>
